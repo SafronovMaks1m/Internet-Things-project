@@ -1,0 +1,36 @@
+body {
+    background-color: MediumPurple;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 40px;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+.panel {
+    background-color: MediumPurple;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px auto;
+    width: 300px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.panel:hover {
+    transform: scale(1.05);
+}
+
+.label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.value {
+    font-size: 2em;
+    font-weight: bold;
+}
