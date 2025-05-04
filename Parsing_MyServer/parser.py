@@ -33,8 +33,8 @@ class Parser:
         data = {
             user['email']: {
                 'upload': self.bytes_to_gigabytes(user['up']), 
-                'dowload': self.bytes_to_gigabytes(user['down']), 
-                'trafic': self.bytes_to_gigabytes(user['up'] + user['down'])
+                'download': self.bytes_to_gigabytes(user['down']), 
+                'traffic': self.bytes_to_gigabytes(user['up'] + user['down'])
                 } for user in data_dict
             }
         return data if user is None else data[user]
