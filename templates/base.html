@@ -1,42 +1,24 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head >
-    <title>Мониторинг ресурсов</title>
-    <link rel = "stylesheet" href = {% static "sensor.css" %}> 
+<head>
+    <title>Данные</title>
+    <link rel="stylesheet" href="{% static 'sensor.css' %}">
 </head>
-<body>
-    <h1>Мониторинг ресурсов сервера</h1>
-    <div class="panel">
-        <div class="label">🧠 CPU нагрузка</div>
-        <div class="value" id="cpu">--</div>
-    </div>
+<body style="font-size: 20px;">
+    <h1>Данные сервера</h1>
+    
+    <a href="/sensors" style="text-decoration: none; color: white;">
+        <div class="panel">
+            <div class="label">📡 Датчики</div>
+        </div>
+    </a>
 
-    <div class="panel">
-        <div class="label">💾 Использование памяти</div>
-        <div class="value" id="mem">--</div>
-    </div>
+    <a href="/users" style="text-decoration: none; color: white;">
+        <div class="panel">
+            <div class="label">👥 Пользователи</div>
+        </div>
+    </a>
 
-    <div class="panel">
-        <div class="label">📀 Использование диска</div>
-        <div class="value" id="disk">--</div>
-    </div>
-
-    <script>
-        async function fetchSensorData() {
-            try {
-                const response = await fetch('/api/sensors/');
-                const data = await response.json();
-                document.getElementById('cpu').textContent = data.cpu + ' %';
-                document.getElementById('mem').textContent = data.mem + ' %';
-                document.getElementById('disk').textContent = data.disk + ' %';
-            } catch (err) {
-                console.error('Ошибка при получении данных:', err);
-            }
-        }
-
-        setInterval(fetchSensorData, 2000);
-        fetchSensorData();
-    </script>
 </body>
 </html>

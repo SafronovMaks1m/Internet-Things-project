@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Данные пользователей</title>
+    <link rel="stylesheet" href="{% static 'users.css' %}">
+</head>
+<body>
+    <h1>Данные пользователей</h1>
+
+    <div class = "arrow">
+        <a href="/" class="back-arrow">🢤</a>
+    </div>    
+
+    <div id="users-container">
+        <!-- Панели с пользователями (динамически) -->
+    </div>
+
+    <script>
+        async function fetchUserData() {
+            try {
+                const response = await fetch('/api/users/');
+                const data = await response.json();
+
+                const container = document.getElementById('users-container');
+                container.innerHTML = '';
+
+                for (const user in data) {
+                    const userData = data[user];
+
+                    const userPanel = document.createElement('div');
+                    userPanel.classList.add('panel');
+                    userPanel.innerHTML = `
+                        <div class="label">${user}</div>
+                    `;
+
+                    const detailsPanel = document.createElement('div');
+                    detailsPanel.classList.add('details');
+                    detailsPanel.innerHTML = `
+                        <div class="value">Upload: ${userData.upload} GB</div>
+                        <div class="value">Download: ${userData.dowload} GB</div>
+                        <div class="value">Traffic: ${userData.trafic} GB</div>
+                    `;
+
+                    userPanel.addEventListener('click', function () {
+                        if (detailsPanel.style.display === 'block') {
+                            detailsPanel.style.display = 'none';
+                        } else {
+                            detailsPanel.style.display = 'block';
+                        }
+                    });
+
+                    userPanel.appendChild(detailsPanel);
+                    container.appendChild(userPanel);
+                }
+            } catch (err) {
+                console.error('Ошибка при получении данных:', err);
+            }
+        }
+
+        setInterval(fetchUserData, 600000);
+        fetchUserData();
+    </script>
+</body>
+</html>

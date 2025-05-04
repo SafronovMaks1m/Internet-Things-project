@@ -1,15 +1,10 @@
 body {
-    text-align: center;
     background-color: #003153;
     font-family: Arial, sans-serif;
     color: white;
+    text-align: center;
     margin: 0;
     padding: 40px;
-}
-
-h1 {
-    margin-bottom: 40px;
-    text-align: center;
 }
 
 .back-arrow {
@@ -31,23 +26,39 @@ h1 {
 .panel {
     background-color: #3E5F8A;
     border-radius: 12px;
-    padding: 30px;
+    padding: 20px;
     margin: 20px auto;
-    width: 300px;
+    width: 40%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
+    cursor: pointer;
 }
 
 .panel:hover {
     transform: scale(1.05);
 }
 
+.details {
+    display: none;
+    background-color: #00868B;
+    padding: 7px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
 .label {
-    font-size: 1.2em;
+    text-align: center;
+    font-size: 1.5em;
     margin-bottom: 10px;
 }
 
+.details .value {
+    font-weight: normal;
+    text-align: center;
+}
+
 .value {
-    font-size: 2em;
+    font-size: 1.2em;
     font-weight: bold;
+    margin-bottom: 5px;
 }
