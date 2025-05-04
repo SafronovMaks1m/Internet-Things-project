@@ -28,7 +28,7 @@ body {
     border-radius: 12px;
     padding: 20px;
     margin: 20px auto;
-    width: 40%;
+    width: 30%;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s;
     cursor: pointer;

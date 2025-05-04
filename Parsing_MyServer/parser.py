@@ -1,4 +1,3 @@
-import requests
 from Parsing_MyServer.session import Session
 from typing import Optional
 

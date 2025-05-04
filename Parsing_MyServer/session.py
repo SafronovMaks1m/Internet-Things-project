@@ -1,10 +1,12 @@
 import requests
-from Parsing_MyServer.config import login, password
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 class Session:
     data = {
-        "username" : login,
-        "password" : password
+        "username" : os.getenv('PARSER_USERNAME'),
+        "password" : os.getenv('PARSER_PASSWORD')
     }
     url = 'http://150.241.90.208:2020/s4xbnZr6ylHkKoB/login'
     def __init__(self):
